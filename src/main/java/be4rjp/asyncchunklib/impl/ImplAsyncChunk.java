@@ -34,21 +34,25 @@ class ImplAsyncChunk implements AsyncChunk {
     
     @Override
     public Material getType(int x, int y, int z){
+        if(chunkSnapshot.isSectionEmpty(y >> 4)) return null;
         return chunkSnapshot.getBlockType(x & 0xF, y, z & 0xF);
     }
     
     @Override
     public BlockData getBlockData(int x, int y, int z){
+        if(chunkSnapshot.isSectionEmpty(y >> 4)) return null;
         return chunkSnapshot.getBlockData(x & 0xF, y, z & 0xF);
     }
     
     @Override
     public int getBlockLight(int x, int y, int z){
+        if(chunkSnapshot.isSectionEmpty(y >> 4)) return 0;
         return chunkSnapshot.getBlockEmittedLight(x & 0xF, y, z & 0xF);
     }
     
     @Override
     public int getSkyLight(int x, int y, int z){
+        if(chunkSnapshot.isSectionEmpty(y >> 4)) return 0;
         return chunkSnapshot.getBlockSkyLight(x & 0xF, y, z & 0xF);
     }
 }
