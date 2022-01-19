@@ -4,6 +4,7 @@ import be4rjp.asyncchunklib.api.AsyncChunk;
 import be4rjp.asyncchunklib.api.AsyncWorld;
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,13 +27,12 @@ public class AsyncChunkCache {
     /**
      * Get thread safe chunk cache.
      */
-    public static AsyncWorld getAsyncWorld(String world){
+    public static @NotNull AsyncWorld getAsyncWorld(String world){
         return worldMap.computeIfAbsent(world, ImplAsyncWorld::new);
     }
     
     public static ChunkSnapshot getChunkCache(String worldName, int chunkX, int chunkZ){
         AsyncWorld asyncWorld = getAsyncWorld(worldName);
-        if(asyncWorld == null) return null;
         
         AsyncChunk asyncChunk = asyncWorld.getAsyncChunk(chunkX, chunkZ);
         if(asyncChunk == null) return null;
