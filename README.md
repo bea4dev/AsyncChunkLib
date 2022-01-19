@@ -18,3 +18,24 @@ public class TestCode {
     }
 }
 ```
+
+#### maven
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.Be4rJP</groupId>
+        <artifactId>AsyncChunkLib</artifactId>
+        <version>v1.0.2</version>
+    </dependency>
+</dependencies>
+```
