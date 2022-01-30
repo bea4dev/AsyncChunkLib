@@ -2,3 +2,4 @@ name: AsyncChunkLib
 version: '${project.version}'
 main: be4rjp.asyncchunklib.AsyncChunkLib
 api-version: 1.15
+load: STARTUP
